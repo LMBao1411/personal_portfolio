@@ -699,10 +699,19 @@ section::before {
     background: #f5f5f5;
 }
 
-/* Hide zoom controls on desktop */
+/* FORCE HIDE zoom controls on desktop - NO EXCEPTIONS */
+.pdf-zoom-controls {
+    display: none !important;
+}
+
+/* Desktop specific - ABSOLUTELY NO ZOOM CONTROLS */
 @media (min-width: 769px) {
     .pdf-zoom-controls {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0 !important;
+        overflow: hidden !important;
     }
 }
 
