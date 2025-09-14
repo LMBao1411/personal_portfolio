@@ -699,9 +699,11 @@ section::before {
     background: #f5f5f5;
 }
 
-/* Hide zoom controls on desktop by default */
-.pdf-zoom-controls {
-    display: none !important;
+/* Hide zoom controls on desktop */
+@media (min-width: 769px) {
+    .pdf-zoom-controls {
+        display: none !important;
+    }
 }
 
 .pdf-viewer object,
