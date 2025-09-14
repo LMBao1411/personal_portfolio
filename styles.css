@@ -702,6 +702,22 @@ section::before {
     width: 100%;
 }
 
+.mobile-pdf-message,
+.mobile-pdf-buttons {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-pdf-message,
+    .mobile-pdf-buttons {
+        display: block;
+    }
+
+    .mobile-pdf-buttons {
+        display: flex;
+    }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .resume-title {
@@ -731,8 +747,39 @@ section::before {
         order: 1;
     }
 
+    .pdf-viewer {
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #f8fafc;
+        border: 2px dashed #3b82f6;
+        padding: 2rem;
+        text-align: center;
+    }
+
     .pdf-viewer embed {
-        height: 600px;
+        display: none;
+    }
+
+    .mobile-pdf-message {
+        color: #1e40af;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .mobile-pdf-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .mobile-pdf-buttons .btn {
+        width: 250px;
+        text-align: center;
     }
 
     .contact-box {
@@ -1112,7 +1159,7 @@ footer {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .hero-subtitle {
@@ -1210,6 +1257,14 @@ footer {
     }
 }
 
+/* Medium tablets and smaller */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small phones */
 @media (max-width: 480px) {
     .container {
         padding: 0 1rem;
@@ -1221,6 +1276,10 @@ footer {
 
     section {
         padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 1.25rem;
     }
 
     .hero-content {
