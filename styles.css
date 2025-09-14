@@ -716,6 +716,37 @@ section::before {
     .mobile-pdf-buttons {
         display: none;
     }
+
+    /* Show zoom controls on mobile only */
+    .pdf-zoom-controls {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .zoom-btn {
+        background: #4a90a4;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .zoom-btn:hover {
+        background: #3a7a8a;
+        transform: translateY(-1px);
+    }
+
+    .zoom-btn:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+    }
 }
 
 /* Mobile responsiveness */
@@ -782,6 +813,11 @@ section::before {
         border: none;
         transform-origin: top left;
         transform: scale(1); /* Remove any existing transforms */
+    }
+
+    /* Hide zoom controls on desktop - only show on mobile */
+    .pdf-zoom-controls {
+        display: none;
     }
 
 

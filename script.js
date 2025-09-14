@@ -107,4 +107,72 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// PDF functionality removed - zoom controls have been removed
+// PDF Zoom functionality with smaller increments
+let currentZoom = 1; // Start at normal zoom level as requested
+const maxZoom = 1.5; // Max zoom at 150%
+const minZoom = 0.6; // Min zoom at 60%
+const zoomIncrement = 0.1; // 10% zoom increment
+
+function zoomIn() {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile && currentZoom < maxZoom) { // Only work on mobile
+        currentZoom += zoomIncrement; // 10% increment
+        currentZoom = Math.min(currentZoom, maxZoom); // Ensure we don't exceed max
+        updatePdfZoom();
+        updateZoomButtons();
+    }
+}
+
+function zoomOut() {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile && currentZoom > minZoom) { // Only work on mobile
+        currentZoom -= zoomIncrement; // 10% decrement
+        currentZoom = Math.max(currentZoom, minZoom); // Ensure we don't go below min
+        updatePdfZoom();
+        updateZoomButtons();
+    }
+}
+
+function updatePdfZoom() {
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfObject = pdfViewer?.querySelector('object');
+    const pdfIframe = pdfViewer?.querySelector('iframe');
+
+    if (pdfViewer) {
+        if (pdfObject) {
+            pdfObject.style.transform = `scale(${currentZoom})`;
+            pdfObject.style.transformOrigin = 'top left';
+            pdfObject.style.width = currentZoom === 1 ? '100%' : `${100 / currentZoom}%`;
+        }
+        if (pdfIframe) {
+            pdfIframe.style.transform = `scale(${currentZoom})`;
+            pdfIframe.style.transformOrigin = 'top left';
+            pdfIframe.style.width = currentZoom === 1 ? '100%' : `${100 / currentZoom}%`;
+        }
+    }
+}
+
+function updateZoomButtons() {
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+
+    if (zoomInBtn) {
+        zoomInBtn.disabled = currentZoom >= maxZoom;
+    }
+    if (zoomOutBtn) {
+        zoomOutBtn.disabled = currentZoom <= minZoom;
+    }
+}
+
+// Initialize PDF zoom on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        // Only initialize zoom functionality on mobile
+        updatePdfZoom(); // Apply initial zoom level
+        updateZoomButtons();
+    } else {
+        // On desktop, zoom controls are hidden and zoom is disabled
+        currentZoom = 1; // Normal zoom for desktop
+    }
+});
