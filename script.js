@@ -113,7 +113,8 @@ const maxZoom = 3;
 const minZoom = 0.5;
 
 function zoomIn() {
-    if (currentZoom < maxZoom) {
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile && currentZoom < maxZoom) {
         currentZoom += 0.25;
         updatePdfZoom();
         updateZoomButtons();
@@ -121,7 +122,8 @@ function zoomIn() {
 }
 
 function zoomOut() {
-    if (currentZoom > minZoom) {
+    const isMobile = window.innerWidth <= 768;
+    if (!isMobile && currentZoom > minZoom) {
         currentZoom -= 0.25;
         updatePdfZoom();
         updateZoomButtons();
@@ -173,11 +175,15 @@ function updateZoomButtons() {
 
 // Initialize PDF zoom on page load
 document.addEventListener('DOMContentLoaded', function() {
-    // Set initial zoom for mobile
     const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-        currentZoom = 1;
-        setTimeout(updatePdfZoom, 1000); // Delay to ensure PDF is loaded
+    if (!isMobile) {
+        // Only initialize zoom functionality on desktop
+        updateZoomButtons();
+    } else {
+        // On mobile, hide zoom controls and disable zoom functionality
+        const zoomControls = document.querySelector('.pdf-zoom-controls');
+        if (zoomControls) {
+            zoomControls.style.display = 'none';
+        }
     }
-    updateZoomButtons();
 });
