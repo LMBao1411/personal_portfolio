@@ -699,6 +699,11 @@ section::before {
     background: #f5f5f5;
 }
 
+/* Hide zoom controls on desktop by default */
+.pdf-zoom-controls {
+    display: none !important;
+}
+
 .pdf-viewer object,
 .pdf-viewer iframe {
     display: block;
@@ -719,7 +724,7 @@ section::before {
 
     /* Show zoom controls on mobile only */
     .pdf-zoom-controls {
-        display: flex;
+        display: flex !important;
         justify-content: center;
         gap: 1rem;
         margin-bottom: 1rem;
@@ -814,12 +819,6 @@ section::before {
         transform-origin: top left;
         transform: scale(1); /* Remove any existing transforms */
     }
-
-    /* Hide zoom controls on desktop - only show on mobile */
-    .pdf-zoom-controls {
-        display: none;
-    }
-
 
     .mobile-pdf-message {
         color: #1e40af;
