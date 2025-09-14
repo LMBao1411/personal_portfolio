@@ -718,22 +718,28 @@ section::before {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .contact-page {
-        padding-top: 90px; /* Reduce top padding */
+        padding-top: 80px; /* Further reduce top padding */
+    }
+
+    .container {
+        padding: 0 1rem; /* Reduce container padding */
     }
 
     .resume-title {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem; /* Reduce bottom margin */
+        font-size: 2rem; /* Smaller title for mobile */
+        margin-bottom: 0.25rem; /* Minimal bottom margin */
     }
 
     .resume-subtitle {
-        margin-bottom: 1rem; /* Reduce bottom margin */
+        margin-bottom: 0.5rem; /* Further reduce bottom margin */
+        font-size: 1rem; /* Smaller subtitle */
     }
 
     .resume-buttons {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 1rem; /* Reduce bottom margin */
+        margin-bottom: 0.5rem; /* Minimal bottom margin */
+        gap: 0.5rem; /* Reduce gap between buttons */
     }
 
     .btn {
@@ -742,8 +748,8 @@ section::before {
 
     .contact-layout {
         grid-template-columns: 1fr;
-        gap: 1rem; /* Reduce gap between sections */
-        margin: 1rem; /* Reduce overall margin */
+        gap: 0.5rem; /* Minimal gap between sections */
+        margin: 0.5rem 1rem; /* Minimal top/bottom margin */
     }
 
     .contact-sidebar {
@@ -760,9 +766,9 @@ section::before {
         background: #f5f5f5;
         position: relative;
         overflow: auto; /* Enable both horizontal and vertical scrolling */
-        height: 60vh; /* Use smaller viewport height on mobile */
-        min-height: 350px; /* Smaller minimum height for mobile */
-        max-height: 500px; /* Smaller maximum height to prevent excessive space */
+        height: 65vh; /* Use more viewport height to fill space better */
+        min-height: 400px; /* Increase minimum height to fill more space */
+        max-height: none; /* Remove max height restriction */
     }
 
     .pdf-viewer object,
@@ -775,34 +781,6 @@ section::before {
         transform: scale(1); /* Remove any existing transforms */
     }
 
-    /* Remove zoom functionality on mobile - PDF is now fixed at readable size */
-
-    .pdf-zoom-controls {
-        display: none; /* Hide zoom controls on mobile */
-    }
-
-    .zoom-btn {
-        background: #4a90a4;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .zoom-btn:hover {
-        background: #3a7a8a;
-        transform: translateY(-1px);
-    }
-
-    .zoom-btn:disabled {
-        background: #9ca3af;
-        cursor: not-allowed;
-        transform: none;
-    }
 
     .mobile-pdf-message {
         color: #1e40af;
@@ -1305,10 +1283,58 @@ footer {
     }
 }
 
+/* Very small phones - target phones with width around 360-375px */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 0.25rem; /* Absolute minimal padding */
+    }
+
+    .contact-page {
+        padding-top: 60px; /* Minimal top padding */
+    }
+
+    .resume-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.1rem; /* Almost no margin */
+    }
+
+    .resume-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.1rem; /* Almost no margin */
+    }
+
+    .resume-buttons {
+        margin-bottom: 0.1rem; /* Almost no margin */
+        gap: 0.25rem;
+    }
+
+    .btn {
+        width: 180px; /* Smaller buttons */
+        padding: 0.5rem 1rem; /* Less padding */
+    }
+
+    .contact-layout {
+        gap: 0.1rem; /* Almost no gap */
+        margin: 0.1rem 0.25rem; /* Absolute minimal margins */
+    }
+
+    .pdf-viewer {
+        height: calc(100vh - 200px); /* Calculate remaining screen height minus header/content */
+        min-height: 500px; /* Force taller height */
+        max-height: calc(100vh - 150px); /* Maximum to fill most of screen */
+        border-radius: 4px; /* Smaller border radius to save space */
+    }
+
+    .contact-box {
+        padding: 1rem; /* Reduce contact box padding */
+        margin-bottom: 0.25rem; /* Minimal bottom margin */
+    }
+}
+
 /* Small phones */
 @media (max-width: 480px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 0.5rem; /* Even less padding for small screens */
     }
 
     .nav-container {
@@ -1316,7 +1342,35 @@ footer {
     }
 
     section {
-        padding: 3rem 0;
+        padding: 2rem 0; /* Reduce section padding */
+    }
+
+    .contact-page {
+        padding-top: 70px; /* Less top padding for small screens */
+    }
+
+    .resume-title {
+        font-size: 1.75rem; /* Smaller title */
+        margin-bottom: 0.25rem;
+    }
+
+    .resume-subtitle {
+        font-size: 0.9rem; /* Even smaller subtitle */
+        margin-bottom: 0.25rem;
+    }
+
+    .resume-buttons {
+        margin-bottom: 0.25rem; /* Minimal margin */
+    }
+
+    .contact-layout {
+        gap: 0.25rem; /* Minimal gap */
+        margin: 0.25rem 0.5rem; /* Very minimal margins */
+    }
+
+    .pdf-viewer {
+        height: 70vh; /* Use more screen height on small phones */
+        min-height: 450px; /* Taller minimum to fill screen better */
     }
 
     .hero-title {
