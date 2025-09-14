@@ -106,3 +106,86 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// PDF Zoom functionality
+let currentZoom = 1;
+const maxZoom = 3;
+const minZoom = 0.5;
+
+function zoomIn() {
+    if (currentZoom < maxZoom) {
+        currentZoom += 0.5;
+        updatePdfZoom();
+        updateZoomButtons();
+    }
+}
+
+function zoomOut() {
+    if (currentZoom > minZoom) {
+        currentZoom -= 0.5;
+        updatePdfZoom();
+        updateZoomButtons();
+    }
+}
+
+function fitToWidth() {
+    // On mobile, use 1.8x zoom for better readability
+    // On desktop, use 1x zoom for normal view
+    const isMobile = window.innerWidth <= 768;
+    currentZoom = isMobile ? 1.8 : 1;
+    updatePdfZoom();
+    updateZoomButtons();
+}
+
+function updatePdfZoom() {
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const pdfObject = pdfViewer.querySelector('object');
+    const pdfIframe = pdfViewer.querySelector('iframe');
+
+    if (pdfViewer) {
+        if (currentZoom > 1) {
+            pdfViewer.classList.add('zoomed');
+            if (pdfObject) {
+                pdfObject.style.transform = `scale(${currentZoom})`;
+                pdfObject.style.width = `${100 / currentZoom}%`;
+            }
+            if (pdfIframe) {
+                pdfIframe.style.transform = `scale(${currentZoom})`;
+                pdfIframe.style.width = `${100 / currentZoom}%`;
+            }
+        } else {
+            pdfViewer.classList.remove('zoomed');
+            if (pdfObject) {
+                pdfObject.style.transform = `scale(${currentZoom})`;
+                pdfObject.style.width = currentZoom === 1 ? '100%' : `${100 / currentZoom}%`;
+            }
+            if (pdfIframe) {
+                pdfIframe.style.transform = `scale(${currentZoom})`;
+                pdfIframe.style.width = currentZoom === 1 ? '100%' : `${100 / currentZoom}%`;
+            }
+        }
+    }
+}
+
+function updateZoomButtons() {
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+
+    if (zoomInBtn) {
+        zoomInBtn.disabled = currentZoom >= maxZoom;
+    }
+    if (zoomOutBtn) {
+        zoomOutBtn.disabled = currentZoom <= minZoom;
+    }
+}
+
+// Initialize PDF zoom on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-zoom for mobile on page load
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        currentZoom = 1.8;
+        setTimeout(updatePdfZoom, 1000); // Delay to ensure PDF is loaded
+    }
+    updateZoomButtons();
+});
