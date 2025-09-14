@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // PDF Zoom functionality
-let currentZoom = 1;
+let currentZoom = 0.75; // Start at a more appropriate zoom level
 const maxZoom = 3;
 const minZoom = 0.5;
 
@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const isMobile = window.innerWidth <= 768;
     if (!isMobile) {
         // Only initialize zoom functionality on desktop
+        updatePdfZoom(); // Apply initial zoom level
         updateZoomButtons();
     } else {
         // On mobile, hide zoom controls and disable zoom functionality
@@ -185,5 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (zoomControls) {
             zoomControls.style.display = 'none';
         }
+        // Reset zoom for mobile
+        currentZoom = 1;
     }
 });
