@@ -998,6 +998,24 @@ section::before {
     line-height: 1.6;
 }
 
+.project-image {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.project-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.project-img:hover {
+    opacity: 1;
+}
+
 .project-details {
     margin-top: 1rem;
 }
