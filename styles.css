@@ -1001,15 +1001,15 @@ section::before {
 .project-image {
     margin-bottom: 1rem;
     margin-top: 0.5rem;
-    text-align: center;
+    text-align: left;
 }
 
 .project-img {
     width: auto;
-    max-width: 150px;
-    max-height: 120px;
+    max-width: 120px;
+    max-height: 80px;
     height: auto;
-    border-radius: 6px;
+    border-radius: 4px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
     object-fit: cover;
