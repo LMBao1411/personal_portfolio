@@ -1002,18 +1002,26 @@ section::before {
     margin-bottom: 1rem;
     margin-top: 0.5rem;
     text-align: left;
+    width: 40px !important;
+    height: 30px !important;
+    overflow: hidden;
 }
 
-.project-img {
-    width: 30px !important;
-    height: 25px !important;
-    max-width: 30px !important;
-    max-height: 25px !important;
+.project-card .project-image img,
+.project-card .project-img,
+img.project-img {
+    width: 40px !important;
+    height: 30px !important;
+    max-width: 40px !important;
+    max-height: 30px !important;
+    min-width: 40px !important;
+    min-height: 30px !important;
     border-radius: 2px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
     object-fit: cover;
-    display: block;
+    display: block !important;
+    box-sizing: border-box !important;
 }
 
 .project-img:hover {
