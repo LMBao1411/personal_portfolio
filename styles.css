@@ -1017,6 +1017,24 @@ section::before {
     opacity: 1;
 }
 
+.project-image-top {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.project-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 8px 8px 0 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.project-img-top:hover {
+    opacity: 1;
+}
+
 .project-details {
     margin-top: 1rem;
 }
