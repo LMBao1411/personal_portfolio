@@ -1005,10 +1005,8 @@ section::before {
 }
 
 .project-img {
-    width: auto;
-    max-width: 120px;
-    max-height: 80px;
-    height: auto;
+    width: 80px;
+    height: 60px;
     border-radius: 4px;
     opacity: 0.8;
     transition: opacity 0.3s ease;
