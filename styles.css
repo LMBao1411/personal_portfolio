@@ -342,12 +342,6 @@ section::before {
     position: relative;
 }
 
-.job-header {
-    border-bottom: 1px solid #f3f4f6;
-    padding-bottom: 1rem;
-    margin-bottom: 1.5rem;
-}
-
 .job-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -355,35 +349,17 @@ section::before {
     margin-bottom: 0.5rem;
 }
 
-.job-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-}
-
-.company {
+.company-name {
+    font-size: 1.125rem;
     font-weight: 500;
-    color: #374151;
+    color: #000000;
+    margin-bottom: 0.5rem;
 }
 
-.location {
+.job-dates {
     color: #6b7280;
     font-size: 0.9rem;
-}
-
-.dates {
-    color: #6b7280;
-    font-size: 0.9rem;
-}
-
-.job-type {
-    background: #dbeafe;
-    color: #1e40af;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 .job-description {
@@ -392,43 +368,32 @@ section::before {
     margin-bottom: 1.5rem;
 }
 
-.achievements {
+.achievement-list {
     margin-bottom: 1.5rem;
-}
-
-.achievements h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 0.75rem;
-}
-
-.achievements ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.achievements li {
-    position: relative;
     padding-left: 1.5rem;
+}
+
+.achievement-list li {
     margin-bottom: 0.5rem;
     color: #4b5563;
     line-height: 1.5;
 }
 
-.achievements li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #22c55e;
-    font-weight: bold;
+.skills-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
-.technologies h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-bottom: 0.75rem;
+.skill-oval {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid #d1d5db;
 }
 
 /* Education section */
