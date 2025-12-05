@@ -994,7 +994,7 @@ section::before {
 }
 
 .rov-project {
-    max-width: 800px !important;
+    max-width: 480px !important;
     width: 100%;
 }
 
