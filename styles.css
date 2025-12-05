@@ -967,10 +967,11 @@ section::before {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    justify-items: center;
 }
 
 .project-card {
@@ -980,6 +981,21 @@ section::before {
     box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
     border: 1px solid #e0f2fe;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ROV Project Section - Centered and Longer */
+.rov-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.rov-project {
+    max-width: 800px !important;
+    width: 100%;
 }
 
 .project-card:hover {
