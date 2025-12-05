@@ -996,6 +996,14 @@ section::before {
 .rov-project {
     max-width: 580px !important;
     width: 100%;
+    padding: 1.5rem 2rem !important;
+}
+
+.rov-project .project-img-top {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
 .project-card:hover {
